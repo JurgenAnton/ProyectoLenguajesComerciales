@@ -1,0 +1,61 @@
+﻿@model IEnumerable<GestorDeHotel.Model.InformacionDePromociones>
+
+@{
+    ViewData["Title"] = "Promoción";
+}
+
+<h1>Promociones</h1>
+
+<p>
+    <a asp-action="Create">Agregar</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.TipoDeHabitacion)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desde)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hasta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PorcentajeDeDescuento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoDeHabitacion)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desde)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hasta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PorcentajeDeDescuento)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id=item.Id  }) |
+                @Html.ActionLink("Detalles", "Details", new {  id=item.Id }) |           
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

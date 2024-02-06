@@ -1,0 +1,70 @@
+﻿@model IEnumerable<GestorDeHotel.Model.InformacionDeHabitacion>
+
+@{
+    ViewData["Title"] = "Habitaciones";
+}
+
+<h2>Habitaciones</h2>
+
+<p>
+    <a asp-action="Create">Agregar</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoHabitacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoHabitacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+
+            @if (item.Reservacion)
+            {
+                <td>
+                    Sí
+                </td>
+            }
+            else
+            {
+                <td>
+                    No
+                </td>
+            }
+
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Detalles", "Detalles", new {  id=item.Id }) |
+            @Html.ActionLink("Reparar", "Reparar", new { id=item.Id, reserva = item.Reservacion }) |
+            @Html.ActionLink("Habilitar", "Habilitar", new { id=item.Id })
+           
+
+
+        </td>
+        </tr>
+}
+    </tbody>
+</table>

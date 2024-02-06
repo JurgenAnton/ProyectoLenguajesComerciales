@@ -1,0 +1,58 @@
+﻿@model GestorDeHotel.Model.InformacionDeHabitacion
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h2>Detalles de habitación</h2>
+
+<div>
+
+    <hr />
+    <dl class="row">
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Numero)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Numero)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoHabitacion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TipoHabitacion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Reservacion)
+        </dt>
+
+        @if (Model.Reservacion)
+        {
+            <dd class="col-sm-10">
+                Sí
+            </dd>
+        }
+        else
+        {
+            <dd class="col-sm-10">
+                No
+            </dd>
+        }
+
+
+    </dl>
+</div>
+<div>
+
+    <a asp-action="Index">Volver</a>
+
+</div>
+

@@ -1,0 +1,56 @@
+﻿@model GestorDeHotel.Model.ReservacionViewModelDetalles
+
+@{
+    ViewData["Title"] = "Check Out";
+}
+
+<h2>Entregar habitación</h2>
+
+<div>
+    <h4>Detalles de entrega</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaDeEntrada)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaDeEntrada)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaDeSalida)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaDeSalida)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.montoPorHora)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.montoPorHora)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CantidadDeHoras)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CantidadDeHoras)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.montoDescuento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.montoDescuento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.montoTotalDeLaReserva)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.montoTotalDeLaReserva)
+        </dd>
+     
+       
+    </dl>
+</div>
+<div>
+   
+    <a asp-action="Index">Entregar</a>
+</div>

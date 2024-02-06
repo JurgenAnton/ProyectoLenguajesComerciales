@@ -1,0 +1,54 @@
+﻿@model GestorDeHotel.Model.InformacionReserva
+
+@{
+    ViewData["Title"] = "Reservar";
+}
+
+<h1>Reservar</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Reservar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+
+                @Html.HiddenFor(m => m.Id_Habitacion)
+
+            </div>
+
+            <div class="form-group">
+
+                @Html.HiddenFor(m => m.Estado)
+
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="CantidadDeHoras" class="control-label"></label>
+                <input asp-for="CantidadDeHoras" class="form-control" />
+                <span asp-validation-for="CantidadDeHoras" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+
+                @Html.HiddenFor(m => m.Reservacion)
+
+            </div>
+
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Aceptar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver</a>
+</div>
+

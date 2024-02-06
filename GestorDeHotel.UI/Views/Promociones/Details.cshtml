@@ -1,0 +1,49 @@
+﻿@model GestorDeHotel.Model.InformacionDePromociones
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalles de la Promocion</h1>
+
+<div>
+    
+    <hr />
+    <dl class="row">
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoDeHabitacion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TipoDeHabitacion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Desde)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Desde)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Hasta)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Hasta)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PorcentajeDeDescuento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PorcentajeDeDescuento)
+
+    </dl>
+</div>
+<div>
+ 
+    <a asp-action="Index">Volver</a>
+</div>

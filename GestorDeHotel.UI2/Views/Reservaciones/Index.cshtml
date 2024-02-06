@@ -1,0 +1,116 @@
+﻿@model IEnumerable<GestorDeHotel.Model.InformacionReserva>
+
+
+@{
+    ViewData["Title"] = "Reservaciones";
+}
+
+<h1>Reservaciones</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoHabitacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadDeHoras)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaDeSalida)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Numero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoHabitacion)
+                </td>
+
+                @if (item.Estado == GestorDeHotel.Model.Estado.BuenasCondiciones && item.Reservacion)
+                {
+                    <td>
+                        Ocupada
+                    </td>
+
+                }
+                @if (item.Estado == GestorDeHotel.Model.Estado.EnReparacion)
+                {
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Estado)
+                    </td>
+
+                }
+                @if (item.Estado == GestorDeHotel.Model.Estado.BuenasCondiciones && item.Reservacion == false)
+                {
+                    <td>
+                        Disponible
+                    </td>
+
+
+                }
+
+
+                @if (item.Estado == GestorDeHotel.Model.Estado.BuenasCondiciones && item.Reservacion == false)
+                {
+                    <td>
+                        0
+                    </td>
+
+                    <td>
+                    </td>
+                }
+                @if (item.Estado == GestorDeHotel.Model.Estado.EnReparacion)
+                {
+
+                    <td>
+                        0
+                    </td>
+
+                    <td>
+                    </td>
+                }
+                @if (item.Estado == GestorDeHotel.Model.Estado.BuenasCondiciones && item.Reservacion)
+                {
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CantidadDeHoras)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaDeSalida)
+                    </td>
+
+
+                }
+
+
+
+
+
+
+
+                <td>
+                    @Html.ActionLink("Reservar", "Reservar", new { idhabitacion = item.Id_Habitacion, reservacion = item.Reservacion, estado = item.Estado }) |
+
+                    @Html.ActionLink("Check Out", "CheckOut", new { id = item.Id, estadoDeReservacion = item.EstadoReservacion })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
